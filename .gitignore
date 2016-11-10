@@ -1,0 +1,14 @@
+# Created by .ignore support plugin (hsz.mobi)
+target
+.idea
+*.iml
+out
+gen
+
+#db configuration
+db_config.properties
+
+#js/css
+js
+css
+

@@ -1,0 +1,54 @@
+DROP TABLE IF EXISTS users CASCADE;
+CREATE TABLE IF NOT EXISTS users
+(
+  uid       BIGSERIAL PRIMARY KEY,
+  uname     VARCHAR(12) NOT NULL,
+  password  VARCHAR(45) NOT NULL,
+  acbalance INT
+);
+
+DROP TABLE IF EXISTS book CASCADE;
+CREATE TABLE IF NOT EXISTS book
+(
+  bid    BIGSERIAL PRIMARY KEY,
+  bname  VARCHAR(45) NOT NULL,
+  bdesc  TEXT,
+  price  INT         NOT NULL,
+  userid BIGINT      NOT NULL,
+  CONSTRAINT user_fk
+  FOREIGN KEY (userid)
+  REFERENCES users
+);
+
+DROP TABLE IF EXISTS author CASCADE;
+CREATE TABLE IF NOT EXISTS author
+(
+  aid   BIGSERIAL PRIMARY KEY,
+  aname VARCHAR(60) NOT NULL
+);
+
+DROP TABLE IF EXISTS image CASCADE;
+CREATE TABLE IF NOT EXISTS image
+(
+  imgid  BIGSERIAL PRIMARY KEY,
+  img    BYTEA NOT NULL,
+  bookid BIGINT,
+  CONSTRAINT book_fk
+  FOREIGN KEY (bookid)
+  REFERENCES book
+);
+
+DROP TABLE IF EXISTS author_book CASCADE;
+CREATE TABLE author_book
+(
+  bookid   BIGINT NOT NULL,
+  authorid BIGINT NOT NULL,
+  PRIMARY KEY (bookid, authorid),
+  CONSTRAINT booking_fk
+  FOREIGN KEY (bookid)
+  REFERENCES book,
+  CONSTRAINT author_fk
+  FOREIGN KEY (authorid)
+  REFERENCES author
+);
+
