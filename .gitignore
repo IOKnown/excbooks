@@ -8,7 +8,4 @@ gen
 #db configuration
 db_config.properties
 
-#js/css
-js
-css
 
