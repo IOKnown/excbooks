@@ -11,7 +11,8 @@
     <modules>
         <module>dao</module>
         <module>controller</module>
-        <module>model</module>
+        <module>dto</module>
+        <module>service</module>
     </modules>
 
 

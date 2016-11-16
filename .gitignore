@@ -8,4 +8,7 @@ gen
 #db configuration
 db_config.properties
 
+#amazon s3 credentials
+rootkey.csv
+
 

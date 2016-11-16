@@ -1,6 +1,6 @@
 package com.excbooks.dao;
 
-import com.excbooks.model.Book;
+import com.excbooks.dto.Book;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Test;

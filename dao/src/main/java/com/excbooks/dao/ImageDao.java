@@ -1,7 +1,7 @@
 package com.excbooks.dao;
 
 
-import com.excbooks.model.Image;
+import com.excbooks.dto.Image;
 import org.springframework.data.repository.CrudRepository;
 
 import java.math.BigInteger;

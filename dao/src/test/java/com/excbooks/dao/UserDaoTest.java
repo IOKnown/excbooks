@@ -1,6 +1,6 @@
 package com.excbooks.dao;
 
-import com.excbooks.model.User;
+import com.excbooks.dto.User;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Test;
@@ -29,8 +29,9 @@ public class UserDaoTest {
         LOGGER.info("++++++++++++FindById++++++++++++++++++++++++++++++");
         User user = userDao.findOne(new BigInteger("1"));
         assertEquals(user.getId(),new BigInteger("1"));
-        assertEquals(user.getUsername(),"user");
+        assertEquals(user.getFirstName(),"user");
         LOGGER.info(user.toString());
         LOGGER.info("++++++++++++++++++++++++++++++++++++++++++++++++++");
     }
+
 }

@@ -2,9 +2,12 @@ DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE IF NOT EXISTS users
 (
   uid       BIGSERIAL PRIMARY KEY,
-  uname     VARCHAR(12) NOT NULL,
+  nfirst    VARCHAR(15) NOT NULL,
+  nsecond   VARCHAR(15) NOT NULL,
   password  VARCHAR(45) NOT NULL,
-  acbalance INT
+  email     VARCHAR(15) NOT NULL UNIQUE,
+  acbalance INT,
+  imgid     BIGINT
 );
 
 DROP TABLE IF EXISTS book CASCADE;
@@ -30,9 +33,10 @@ CREATE TABLE IF NOT EXISTS author
 DROP TABLE IF EXISTS image CASCADE;
 CREATE TABLE IF NOT EXISTS image
 (
-  imgid  BIGSERIAL PRIMARY KEY,
-  img    BYTEA NOT NULL,
-  bookid BIGINT,
+  imgid       BIGSERIAL PRIMARY KEY,
+  imgurl      VARCHAR(20) UNIQUE,
+  img_oldname VARCHAR(20),
+  bookid      BIGINT,
   CONSTRAINT book_fk
   FOREIGN KEY (bookid)
   REFERENCES book
@@ -51,4 +55,5 @@ CREATE TABLE author_book
   FOREIGN KEY (authorid)
   REFERENCES author
 );
+
 

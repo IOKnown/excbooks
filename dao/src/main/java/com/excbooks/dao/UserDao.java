@@ -1,6 +1,6 @@
 package com.excbooks.dao;
 
-import com.excbooks.model.User;
+import com.excbooks.dto.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.math.BigInteger;

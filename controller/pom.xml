@@ -12,7 +12,7 @@
     <artifactId>conroller</artifactId>
     <packaging>war</packaging>
     <properties>
-        <springVersion>4.3.1.RELEASE</springVersion>
+        <springVersion>4.3.2.RELEASE</springVersion>
         <log4jVersion>1.2.17</log4jVersion>
         <sl4jVersion>1.7.21</sl4jVersion>
     </properties>

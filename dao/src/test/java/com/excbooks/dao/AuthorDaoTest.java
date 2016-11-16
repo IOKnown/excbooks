@@ -1,6 +1,6 @@
 package com.excbooks.dao;
 
-import com.excbooks.model.Author;
+import com.excbooks.dto.Author;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Test;
@@ -19,6 +19,8 @@ import static junit.framework.TestCase.assertEquals;
 @ContextConfiguration(classes = DaoTestConfig.class , loader = AnnotationConfigContextLoader.class)
 public class AuthorDaoTest {
     private static final Logger LOGGER = LogManager.getLogger(AuthorDaoTest.class);
+
+    //TODO rewrite test
 
     @Autowired
     AuthorDao authorDao;
