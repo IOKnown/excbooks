@@ -20,8 +20,6 @@ import static junit.framework.TestCase.assertEquals;
 public class AuthorDaoTest {
     private static final Logger LOGGER = LogManager.getLogger(AuthorDaoTest.class);
 
-    //TODO rewrite test
-
     @Autowired
     AuthorDao authorDao;
 

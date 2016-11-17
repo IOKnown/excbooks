@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 //@Import({ServletConfig.class, DaoConfig.class})
-@ComponentScan(basePackages = "com.excbooks.controller")
+@ComponentScan(basePackages = "com.excbooks")
 public class RootConfig{
     RootConfig(){
 

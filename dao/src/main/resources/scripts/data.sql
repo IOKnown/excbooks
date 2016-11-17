@@ -12,4 +12,7 @@ INSERT INTO author_book VALUES (1, 2),
   (2,1),
   (1,1);
 
+INSERT INTO image VALUES (DEFAULT, 'https://s3.eu-central-1.amazonaws.com/ioknown/book/GbdCUTc7ksE.jpg',null,1),
+  (DEFAULT, 'https://s3.eu-central-1.amazonaws.com/ioknown/book/Van.jpg',null,2);
+
 ALTER TABLE users ADD  CONSTRAINT imgid_users_fk FOREIGN KEY (imgid) REFERENCES image;

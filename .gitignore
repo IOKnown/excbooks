@@ -7,6 +7,7 @@ gen
 
 #db configuration
 db_config.properties
+db_test_config.properties
 
 #amazon s3 credentials
 rootkey.csv

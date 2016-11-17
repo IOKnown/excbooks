@@ -1,4 +1,4 @@
-package com.excbooks.dao;
+package com.excbooks.service;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.log4j.LogManager;
@@ -27,8 +27,8 @@ import java.util.Properties;
         transactionManagerRef = "jpaTransactionManager",
         basePackages = {"com.excbooks.dao"})
 @Configuration
-public class DaoTestConfig {
-    private static final Logger LOGGER = LogManager.getLogger(DaoTestConfig.class);
+public class ServiceTestConfig {
+    private static final Logger LOGGER = LogManager.getLogger(ServiceTestConfig.class);
 
     private Properties dbConfig = new Properties();
     {

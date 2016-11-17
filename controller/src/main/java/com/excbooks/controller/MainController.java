@@ -8,7 +8,4 @@ public class MainController {
     {
         BasicConfigurator.configure();
     }
-
-
-
 }

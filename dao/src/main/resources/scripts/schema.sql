@@ -34,7 +34,7 @@ DROP TABLE IF EXISTS image CASCADE;
 CREATE TABLE IF NOT EXISTS image
 (
   imgid       BIGSERIAL PRIMARY KEY,
-  imgurl      VARCHAR(20) UNIQUE,
+  imgurl      VARCHAR(90) UNIQUE NOT NULL,
   img_oldname VARCHAR(20),
   bookid      BIGINT,
   CONSTRAINT book_fk
