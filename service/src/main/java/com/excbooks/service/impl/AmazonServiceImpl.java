@@ -29,14 +29,14 @@ public class AmazonServiceImpl implements AmazonService {
     @Autowired
     private ImageService imageService;
 
-    public String addObject(File file, FileType type) {
+    public String addS3Object(File file, FileType type) {
         String folder = null;
         if (type == FileType.avatar) {
             folder = "avatar";
         } else if (type == FileType.book) {
             folder = "book";
         }
-        Integer imgId = imageService.nextImgId();
+        Integer imgId = imageService.nextImgId();//last id set before img name to reduce risks matching name of images
         String extension = file.getName().substring(file.getName().indexOf('.'));
         String newFileName = String.format("%s/%s%s%s", folder, imgId, RandomStringUtils.randomAlphanumeric(8), extension);
         AmazonS3 s3client = new AmazonS3Client(new ProfileCredentialsProvider(CREDENTIALS, PROFILE));
@@ -78,7 +78,7 @@ public class AmazonServiceImpl implements AmazonService {
 
 
     @Override
-    public void deleteObject(Image img) {
+    public void deleteS3Object(Image img) {
         AmazonS3 s3Client = new AmazonS3Client(new ProfileCredentialsProvider(CREDENTIALS, PROFILE));
         try {
             s3Client.deleteObject(new DeleteObjectRequest(BUCKET_NAME, img.getKeyWithFolder()));
@@ -97,7 +97,7 @@ public class AmazonServiceImpl implements AmazonService {
 
 
     @Override
-    public File getObject(Image img) {
+    public File getS3Object(Image img) {
         AmazonS3 s3Client = new AmazonS3Client(new ProfileCredentialsProvider(CREDENTIALS, PROFILE));
         File targetFile = null;
         try {
