@@ -34,9 +34,4 @@ public class ServletConfig  extends WebMvcConfigurerAdapter {
         configurer.enable();
     }
 
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("index.html");
-        registry.addViewController("/index.html").setViewName("index.html");
-    }
 }

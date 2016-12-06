@@ -1,11 +1,13 @@
 package com.excbooks.controller;
 
-import org.apache.log4j.BasicConfigurator;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-@RestController
+@Controller
 public class MainController {
-    {
-        BasicConfigurator.configure();
+
+    @RequestMapping("/")
+    public String index(){
+        return "index.html";
     }
 }

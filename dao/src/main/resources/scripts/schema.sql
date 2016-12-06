@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS users
   uid       BIGSERIAL PRIMARY KEY,
   nfirst    VARCHAR(15) NOT NULL,
   nsecond   VARCHAR(15) NOT NULL,
-  password  VARCHAR(45) NOT NULL,
+  password  VARCHAR(60) NOT NULL,
   email     VARCHAR(15) NOT NULL UNIQUE,
   acbalance INT,
   imgid     BIGINT

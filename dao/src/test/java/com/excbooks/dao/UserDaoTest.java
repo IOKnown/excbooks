@@ -34,4 +34,24 @@ public class UserDaoTest {
         LOGGER.info("++++++++++++++++++++++++++++++++++++++++++++++++++");
     }
 
+    @Test
+    @Transactional(readOnly = true)
+    public void findUserByEmailTest(){
+        LOGGER.info("++++++++++++FindById++++++++++++++++++++++++++++++");
+        User user = userDao.findUserByEmail("user@test.com");
+        assertEquals(user.getId(),new BigInteger("1"));
+        assertEquals(user.getFirstName(),"user");
+        LOGGER.info(user.toString());
+        LOGGER.info("++++++++++++++++++++++++++++++++++++++++++++++++++");
+
+    }
+
+
+//    @Test
+//    public void test(){
+//        PasswordEncoder encoder =  new BCryptPasswordEncoder();
+//        System.out.println(encoder.encode("user"));
+//        System.out.println(encoder.encode("petro"));
+//        System.out.println(encoder.encode("fedir"));
+//    }
 }

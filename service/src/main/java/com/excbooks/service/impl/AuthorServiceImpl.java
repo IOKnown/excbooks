@@ -10,7 +10,7 @@ import java.math.BigInteger;
 @Transactional
 @Service
 public class AuthorServiceImpl implements AuthorService {
-    // TODO write  service
+
     @Transactional(readOnly = true)
     public Author findById(BigInteger id) {
         return null;
