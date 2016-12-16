@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
 
-@Transactional
+@Transactional()
 @Service
 public class UserServiceImpl implements UserService{
 
@@ -26,8 +26,22 @@ public class UserServiceImpl implements UserService{
         return userDao.findOne(id);
     }
 
-    public void save(User user){
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userDao.save(user);
+    @Override
+    public User findByEmail(String email) {
+        return userDao.findUserByEmail(email);
     }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void save(User user) throws Exception{
+        try{
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            userDao.save(user);
+        }catch (Exception e){
+            //TODO logger
+            throw e;
+        }
+
+    }
+
+
 }

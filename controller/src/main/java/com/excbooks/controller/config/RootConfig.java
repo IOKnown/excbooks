@@ -17,5 +17,4 @@ public class RootConfig{
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 }

@@ -28,11 +28,15 @@ public class SecurityBasicAuthConfig extends WebSecurityConfigurerAdapter {
                     .and()
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
+                .antMatchers("/login").permitAll()
+                .antMatchers("/sing-up").permitAll()
                 .antMatchers("/resources/**").permitAll()
                 .anyRequest().authenticated()
                     .and()
                 .httpBasic()
                 .authenticationEntryPoint(new Http403ForbiddenEntryPoint());
+        //TODO test version
+        http.csrf().disable();
     }
 
     @Autowired

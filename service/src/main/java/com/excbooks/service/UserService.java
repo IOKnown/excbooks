@@ -5,5 +5,7 @@ import com.excbooks.dto.User;
 import java.math.BigInteger;
 
 public interface UserService{
-    public User findById(BigInteger id);
+    User findById(BigInteger id);
+    User findByEmail(String Email);
+    void save(User user) throws Exception;
 }

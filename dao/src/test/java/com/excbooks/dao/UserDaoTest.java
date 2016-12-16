@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigInteger;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = DaoTestConfig.class , loader = AnnotationConfigContextLoader.class)
@@ -42,16 +43,8 @@ public class UserDaoTest {
         assertEquals(user.getId(),new BigInteger("1"));
         assertEquals(user.getFirstName(),"user");
         LOGGER.info(user.toString());
+        user = userDao.findUserByEmail("notValid@email.com");
+        assertNull(user);
         LOGGER.info("++++++++++++++++++++++++++++++++++++++++++++++++++");
-
     }
-
-
-//    @Test
-//    public void test(){
-//        PasswordEncoder encoder =  new BCryptPasswordEncoder();
-//        System.out.println(encoder.encode("user"));
-//        System.out.println(encoder.encode("petro"));
-//        System.out.println(encoder.encode("fedir"));
-//    }
 }

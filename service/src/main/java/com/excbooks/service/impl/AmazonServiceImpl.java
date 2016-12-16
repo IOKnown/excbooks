@@ -7,8 +7,8 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.*;
 import com.excbooks.dto.Image;
+import com.excbooks.dto.ImageType;
 import com.excbooks.service.AmazonService;
-import com.excbooks.service.FileType;
 import com.excbooks.service.ImageService;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -29,11 +29,11 @@ public class AmazonServiceImpl implements AmazonService {
     @Autowired
     private ImageService imageService;
 
-    public String addS3Object(File file, FileType type) {
+    public String addS3Object(File file, ImageType type) {
         String folder = null;
-        if (type == FileType.avatar) {
+        if (type == ImageType.avatar) {
             folder = "avatar";
-        } else if (type == FileType.book) {
+        } else if (type == ImageType.book) {
             folder = "book";
         }
         Integer imgId = imageService.nextImgId();//last id set before img name to reduce risks matching name of images

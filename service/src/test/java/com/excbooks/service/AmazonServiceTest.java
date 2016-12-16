@@ -1,6 +1,7 @@
 package com.excbooks.service;
 
 import com.excbooks.dto.Image;
+import com.excbooks.dto.ImageType;
 import com.excbooks.service.impl.AmazonServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,17 +35,15 @@ public class AmazonServiceTest {
     @Test
     public void amazonTestCRUD() throws IOException {
         when(imageService.nextImgId()).thenReturn(3);
-        File file = new File(this.getClass().getClassLoader().getResource("image2.png").getFile());
-        String imgURL = amazonService.addS3Object(file, FileType.book);
+        File file = new File(this.getClass().getClassLoader().getResource("out1.png").getFile());
+        String imgURL = amazonService.addS3Object(file, ImageType.book);
         Image img = new Image();
         img.setImgURL(imgURL);
-        File file1 = amazonService.getS3Object(img);
-        assertEquals(file1.length(),file.length());
-        assertEquals(file1.getName(),img.getKey());
+        File fileReturned = amazonService.getS3Object(img);
+        assertEquals(fileReturned.length(),file.length());
+        assertEquals(fileReturned.getName(),img.getKey());
         amazonService.deleteS3Object(img);
-        if (file.delete()){
-            return;
-        }else {
+        if (!fileReturned.delete()){
             throw new IOException();
         }
     }

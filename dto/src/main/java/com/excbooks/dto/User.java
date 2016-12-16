@@ -34,7 +34,10 @@ public class User {
 
     @OneToOne
     @JoinColumn(name = "imgid")
-    private Book book;
+    private Image image;
+
+    @Transient
+    private String imageUrl;
 
     public User() {
     }
@@ -95,12 +98,26 @@ public class User {
         this.email = email;
     }
 
-    public Book getBook() {
-        return book;
+    public Image getImage() {
+        return image;
     }
 
-    public void setBook(Book book) {
-        this.book = book;
+    public void setImage(Image image) {
+        this.image = image;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public void setImagetUrl(){
+        if(image!=null){
+            this.imageUrl = image.getImgURL();
+        }
     }
 
     @Override
@@ -114,4 +131,6 @@ public class User {
                 "| balance=" + balance +
                 '}';
     }
+
+
 }
